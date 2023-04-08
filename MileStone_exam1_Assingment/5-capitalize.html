@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Captilize user input name</title>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.querySelector("form");
+        const input = document.querySelector("input");
+        const ul = document.querySelector("ul");
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          const capitalizeName = formData
+            .get("username")
+            .split(" ")
+            .map((word) => word.replace(word[0], word[0].toUpperCase()))
+            .join(" ");
+          const li = document.createElement("li");
+          li.textContent = capitalizeName;
+          ul.appendChild(li);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="text" name="username" />
+      <button>submit</button>
+    </form>
+    <h2>result:</h2>
+    <ul></ul>
+  </body>
+</html>
