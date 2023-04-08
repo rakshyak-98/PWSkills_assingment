@@ -12,7 +12,8 @@ CSS selectors are used in HTML to define the visuial style of specific elements 
 ### Q3 How do you include external fornts and apply them?
 1. In the head tag add the link element pointing to the font-family source files. Then use the CSS property `font-family: ` to set the font-family.
 2. In your CSS file, use the `@font-face` rule to define the font-family and the location of the font files.
-``` @font-face{
+``` 
+@font-face{
     font-family: 'Open Sans';
     src: url('path/to/OpenSans-Regular.ttf') format('truetype');
 }
