@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count vowels in Person name</title>
+  </head>
+  <body>
+    <span>vowels count: <b></b></span>
+    <form>
+      <input type="text" name="name" />
+      <button>submit</button>
+    </form>
+    <script>
+      const form = document.querySelector("form");
+      const bold = document.querySelector("b");
+      form.addEventListener("submit", (e) => {
+        let count = 0;
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const personName = formData.get("name");
+        personName.split("").forEach((ch) => {
+          ["a", "e", "i", "o", "u"].includes(ch) ? count++ : count;
+        });
+        bold.innerText = count;
+      });
+    </script>
+  </body>
+</html>
