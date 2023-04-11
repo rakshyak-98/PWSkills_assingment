@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamically Adding list items to an ordered list</title>
+  </head>
+  <body>
+    <button id="button">add item</button>
+    added items:
+    <ul id="list"></ul>
+    <script>
+      const preItemList = [
+        "HTML and Semantics",
+        "Starting with CSS",
+        "Working template",
+        "Mobile responsive webpages",
+        "Grid and Flex-box in css",
+        "Project using HTML and CSS",
+      ];
+      const list = document.getElementById("list");
+      const button = document.getElementById("button");
+      let index = 0;
+
+      function addItem() {
+        if (index >= preItemList.length) {
+          alert("All preItemList have been added");
+          return;
+        }
+        const item = document.createElement("li");
+        item.innerText = preItemList[index];
+        list.appendChild(item);
+        index++;
+      }
+
+      button.addEventListener("click", addItem);
+    </script>
+  </body>
+</html>

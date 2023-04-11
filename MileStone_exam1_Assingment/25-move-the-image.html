@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Move the image</title>
+  </head>
+  <body>
+    <img src="https://th.bing.com/th/id/R.3bcb9885029ffb81f58fb4a46c6d854f?rik=caTmTHH%2bNuWv1w&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f8%2fd%2f1%2f798741-download-free-awesome-nature-backgrounds-1920x1080-for-tablet.jpg&ehk=%2fu8xawhlqhlABfauhjBvJm3YUpEq5Vjqj2FfHAGm%2bj8%3d&risl=&pid=ImgRaw&r=0" id="image" />
+    <script>
+      const image = document.getElementById("image");
+      let x = 0;
+      let y = 0;
+
+      function moveImage(event) {
+        switch (event.keyCode) {
+          case 37: // left arrow
+            x -= 10;
+            break;
+          case 38: // up arrow
+            y -= 10;
+            break;
+          case 39: // right arrow
+            x += 10;
+            break;
+          case 40: // down arrow
+            y += 10;
+            break;
+        }
+        image.style.transform = `translate(${x}px, ${y}px)`;
+      }
+
+      document.addEventListener("keydown", moveImage);
+    </script>
+  </body>
+</html>

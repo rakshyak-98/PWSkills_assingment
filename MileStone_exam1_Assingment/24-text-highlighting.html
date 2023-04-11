@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Highlighting</title>
+    <style>
+        .highlight{
+            background-color: yellow;
+        }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo possimus
+      assumenda expedita fugit adipisci odit, molestias odio, rerum blanditiis
+      unde maxime consequatur accusamus obcaecati iste, impedit consectetur eos
+      deserunt alias. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Reprehenderit dolorem nisi sint rerum vitae? Tempore, sint error
+      cupiditate minus unde necessitatibus aspernatur vel eius delectus sed
+      cumque magnam praesentium asperiores facilis. Labore animi ad error
+      necessitatibus, laudantium vel, voluptatibus ipsa quia impedit deserunt
+      libero molestias corrupti quibusdam perferendis quaerat vitae!
+    </p>
+    <script>
+      const paragraph = document.querySelector("p");
+      const words = paragraph.textContent.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].length > 8) {
+          words[i] = '<span class="highlight">' + words[i] + "</span>";
+        }
+      }
+      const highlightedText = words.join(" ");
+      paragraph.innerHTML = highlightedText;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      placeholder="whats in your mind!"
+      title="enter your todo list text here"
+    />
+    <button>add todo</button>
+    <p>My list:</p>
+    <ul></ul>
+    <script>
+      const inputField = document.querySelector("input");
+      const addTodoBtn = document.querySelector("button");
+      const todoListEl = document.querySelector("ul");
+      function handleAddTodo(e) {
+        e.preventDefault();
+        if (!inputField.value) return;
+        todoListEl.insertAdjacentHTML(
+          "afterend",
+          `<li>${inputField.value}</li>`
+        );
+      }
+      addTodoBtn.addEventListener("click", handleAddTodo);
+    </script>
+  </body>
+</html>

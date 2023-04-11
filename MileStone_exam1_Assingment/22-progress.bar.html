@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Progress bar</title>
+    <style>
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 5px;
+        width: 0%;
+        background-color: lightskyblue;
+        z-index: 9999;
+        transition: width 0.3s ease-in-out;
+      }
+      .section{
+        height: 100vh;
+      }
+      #section--1{
+        background-color: aquamarine;
+      }
+      #section--2{
+        background-color: teal;
+      }
+      #section--3{
+        background-color: lightcyan;
+      }
+      #section--4{
+        background-color: lightgray;
+      }
+      #section--5{
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+    <section class="section" id="section--1">
+        <h1 style="text-align: center;">Begin</h1>
+    </section>
+    <section class="section" id="section--2"></section>
+    <section class="section" id="section--3"></section>
+    <section class="section" id="section--4"></section>
+    <section class="section" id="section--5">
+        <h1 style="text-align: center;">The End</h1>
+    </section>
+    <script>
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        var winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        var height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("progress-bar").style.width = scrolled + "%";
+      }
+    </script>
+  </body>
+</html>
