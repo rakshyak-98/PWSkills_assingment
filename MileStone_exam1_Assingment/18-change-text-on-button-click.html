@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Text on Button click</title>
+    <style>
+        h1.changeHeading{
+            visibility: hidden;
+        }
+        .btn{
+            text-decoration: none;
+            border: 1px solid black;
+            padding: .2rem;
+            color: inherit;
+            text-transform: capitalize;
+        }
+        .btn:active{
+            border: 2px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <h1 data-heading="default">The most affordable learning platform</h1>
+    <a href="#change" class="btn">change</a>
+    <script>
+      const chnageBtn = document.querySelector("a");
+      const heading = document.querySelector("h1");
+      const resetText = heading.textContent
+      chnageBtn.addEventListener("click", (e) => {
+        console.log("this")
+        if(heading.dataset.heading == "default"){
+            heading.textContent = "Pw Skills"
+            heading.dataset.heading = "pwskills"
+        }else if (heading.dataset.heading == "pwskills"){
+            heading.textContent = resetText
+            heading.dataset.heading = "default"
+        }
+      });
+    </script>
+  </body>
+</html>
