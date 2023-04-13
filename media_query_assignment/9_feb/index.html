@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media query assignment</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        section{
+            width: 100vw;
+            height: 100vh;
+            background-color: aquamarine;
+            text-align: center;
+        }
+        @media screen and (max-width: 1440px){
+            section{
+                background-color: green;
+            }
+        }
+        @media screen and (max-width: 1024px){
+            section{
+                background-color: darkgoldenrod;
+            }
+        }
+        @media screen and (max-width: 768px){
+            section{
+                background-color: lightblue;
+            }
+        }
+        @media screen and (max-width: 468px){
+            section{
+                background-color: tomato;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>This is Media Query demo page.</h1>
+        <p>screen size: <span></span></p>
+    </section>
+    <script>
+        const sizeEl  = document.querySelector('p span')
+        window.addEventListener('resize', () => {
+            console.log(window.outerWidth)
+            sizeEl.textContent = window.outerWidth
+        })
+    </script>
+</body>
+</html>
