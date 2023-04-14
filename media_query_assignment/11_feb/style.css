@@ -106,7 +106,13 @@ figure.positioned img {
   height: 500px;
 }
 @media screen and (max-width: 768px) {
-  figure.positioned img {
+  figure.positioned{
+    filter: blur(2px);
+    z-index: -1;
+  }
+}
+@media screen and (max-width: 468px){
+  figure.positioned{
     display: none;
   }
 }
@@ -156,7 +162,11 @@ section#on-ear .content {
   flex-direction: column;
   gap: 30px;
 }
-
+@media screen and (max-width: 368px){
+  section#on-ear .content{
+    gap: 10px
+  }
+}
 
 /* landing page brands */
 figure.brands {
@@ -328,16 +338,17 @@ section#choose-style .content .card::after{
     content: "";
     position: absolute;
     border-radius: var(--card-border);
-    background-color: var(--bg-color-dark2);
+    background-image: linear-gradient(to top,var(--bg-color-dark2), transparent);
     height: 80%;
     width: 100%;
     top: 20%;
-    z-index: -1;
+    z-index: -1
 }
 section#choose-style .content .card figure.product img{
     width: 170px;
 }
 section#choose-style .card img.icon{
+  cursor: pointer;
     background-color: var(--bg-color-dark);
     padding: 1rem;
     border-radius: var(--card-border);
