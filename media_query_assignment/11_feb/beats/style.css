@@ -1,0 +1,422 @@
+:root {
+  /* color */
+  --primary-color: #000;
+  --seconday-color: #bdc0c2;
+  --bg-color-dark: var(--primary-color, #0001);
+  --bg-color-dark2: var(--btn-dark);
+  --bg-color-light: #bdc0c2;
+  --color-white: #fff;
+  --btn-dark: #1e1e21;
+  --btn-dark2: var(--primary-color);
+
+  /* fonts */
+  --primary-heading-text: 4.8rem;
+  --secondary-heading-text: 2.4rem;
+  --body-text: 1.8rem;
+  --link-text: 1.6rem;
+  --btn-text: 1.6rem;
+  --primary-font: "Poppins", sans-serif;
+  --para-text: 1.4rem;
+
+  /* spaces */
+  --m-large: 6rem;
+  --m-small: 2rem;
+
+  --p-large: 6rem;
+  --p-small: 2rem;
+
+  /* style */
+  --btn-border: 8px;
+  --wrapper-padding: 2rem;
+  --nav-item-gap: 2rem;
+  --card-border: var(--btn-border, 10px)
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: var(--body-text);
+}
+
+html {
+  font-size: 62.5%;
+  font-family: var(--primary-font);
+  color: var(--color-white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+li {
+  list-style: none;
+}
+h1 {
+  font-size: clamp(2.4rem, 10vw, var(--primary-heading-text));
+}
+h2 {
+  font-size: clamp(1.4rem, 10vw, var(--secondary-heading-text));
+}
+body {
+  background-color: var(--bg-color-dark);
+}
+main {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: var(--wrapper-padding);
+}
+img {
+  width: 100%;
+}
+/* global style */
+img.icon {
+  width: 18px;
+  height: 18px;
+}
+.btn {
+  border: none;
+  padding: 1rem 4rem;
+  border-radius: var(--btn-border);
+  background-color: var(--btn-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  white-space: nowrap;
+}
+
+/* header */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-block: 2rem;
+  position: relative;
+}
+figure.logo {
+  flex-shrink: 0;
+}
+figure.positioned {
+  position: absolute;
+  top: 0;
+  left: 40px;
+}
+figure.positioned img {
+  height: 500px;
+}
+@media screen and (max-width: 768px) {
+  figure.positioned{
+    filter: blur(2px);
+    z-index: -1;
+  }
+}
+@media screen and (max-width: 468px){
+  figure.positioned{
+    display: none;
+  }
+}
+header nav {
+  margin-inline-start: auto;
+}
+header nav .nav__list {
+  display: flex;
+  gap: var(--nav-item-gap);
+}
+header nav .nav__list-link:hover {
+  color: var(--bg-color-light);
+}
+@media screen and (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+  header a.btn {
+    margin-inline-start: auto;
+  }
+}
+
+/* landing page on ear */
+figure.heading {
+  width: 32rem;
+}
+@media screen and (max-width: 360px) {
+  figure.heading {
+    width: 240px;
+  }
+}
+section#on-ear {
+  padding-top: var(--p-large);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+section#on-ear .content p {
+  max-width: 48ch;
+  font-size: var(--para-text);
+  letter-spacing: 1.2px;
+  line-height: 2.2;
+  color: var(--seconday-color);
+}
+section#on-ear .content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media screen and (max-width: 368px){
+  section#on-ear .content{
+    gap: 10px
+  }
+}
+
+/* landing page brands */
+figure.brands {
+  margin-top: var(--m-large);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 4rem;
+  place-items: center;
+}
+figure.brands img {
+  width: 120px;
+}
+
+@media screen and (max-width: 768px) {
+  figure.brands {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  figure.brands img {
+    width: 82px;
+  }
+}
+
+/* specs */
+section#specs {
+  margin-top: var(--m-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section#specs .content {
+  display: flex;
+  align-items: center;
+}
+
+section#specs .content figure#beats-specs-headphone {
+  flex-shrink: 0;
+}
+
+section#specs .content .blutooth,
+.mic {
+  margin-left: 30px;
+}
+@media screen and (max-width: 768px) {
+  section#specs .content {
+    flex-direction: column;
+    row-gap: 40px;
+  }
+  section#specs .content .product-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  section#specs .content .product-specs > .card {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  section#specs .content {
+    align-self: flex-start;
+  }
+  section#specs .content .product-specs {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+section#specs .content .product-specs > .card {
+  margin-top: var(--m-small);
+}
+
+/* case section */
+section#case {
+  margin-top: var(--m-large);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section#case .content {
+  margin-top: var(--m-small);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+section#case .content .product-detail p {
+  max-width: 32ch;
+  margin-bottom: var(--m-small);
+  font-size: var(--para-text);
+  letter-spacing: 1.2px;
+  line-height: 2.2;
+  color: var(--seconday-color);
+}
+
+@media screen and (max-width: 768px){
+    section#case .content{
+        flex-direction: column;
+    }
+}
+
+/* buy now section */
+section#buy-now{
+    margin-top: var(--m-large);
+    background-color: var(--bg-color-dark2);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    place-items: center;
+    padding: 10rem;
+    border-radius: 10px;
+}
+@media screen and (max-width: 768px){
+    section#buy-now{
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+}
+@media screen and (max-width: 468px){
+    section#buy-now{
+        padding: 40px 20px;
+    }
+}
+section#buy-now .btn{
+    background-color: var(--btn-dark2);
+}
+
+section#buy-now .content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+section#buy-now .content p{
+  font-size: var(--para-text);
+  letter-spacing: 1.2px;
+  line-height: 2.2;
+  color: var(--seconday-color);
+}
+
+/* choose section */
+section#choose-style{
+    margin-top: var(--m-large);
+    margin-bottom: var(--m-small);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section#choose-style .content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    place-items: center;
+}
+@media screen and (max-width: 460px){
+    section#choose-style .content{
+        grid-template-columns: 1fr;
+    }
+}
+section#choose-style .content .card{
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+section#choose-style .content .card::after{
+    content: "";
+    position: absolute;
+    border-radius: var(--card-border);
+    background-image: linear-gradient(to top,var(--bg-color-dark2), transparent);
+    height: 80%;
+    width: 100%;
+    top: 20%;
+    z-index: -1
+}
+section#choose-style .content .card figure.product img{
+    width: 170px;
+}
+section#choose-style .card img.icon{
+  cursor: pointer;
+    background-color: var(--bg-color-dark);
+    padding: 1rem;
+    border-radius: var(--card-border);
+}
+section#choose-style .content .card .product-detail{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section#choose-style .content .card .product-detail h2{
+    font-size: var(--body-text);
+}
+/* footer */
+footer{
+  margin-top: var(--m-large);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: start;
+}
+footer .btn{
+background-color: var(--btn-dark2);
+}
+footer .input-group{
+  padding: 10px 10px;
+  background-color: var(--bg-color-dark2);
+  display: flex;
+  gap: 10px;
+  border-radius: 10px;
+}
+footer ul > li:first-child{
+  font-size: 2.8rem;
+  margin-bottom: 2rem;
+}
+footer ul > li{
+  font-size: 1.6rem;
+}
+footer ul > li:not(:last-child){
+  margin-bottom: 1rem;
+}
+footer .input-group input{
+  background-color: transparent;
+  border: 0px solid transparent;
+  color: inherit;
+  padding-inline-start: 4px;
+}
+@media screen and (max-width: 1200px){
+  footer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+ 
+}
+@media screen and (max-width: 768px){
+  footer{
+    justify-content: center;
+    gap: 40px;
+  }
+   footer .btn span{
+    display: none;
+  }
+}
+@media screen and (max-width: 368px){
+  footer {
+    flex-direction: column;
+  }
+  footer .btn{
+    padding:10px;
+  }
+}
