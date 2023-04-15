@@ -1,0 +1,212 @@
+:root {
+  /* color */
+  --primary-color: #20bc7e;
+  --seconday-color:  #7c7c7c;
+  --bg-color-dark: var(--primary-color, #0001);
+  --bg-color-dark2: var(--btn-dark);
+  --bg-color-light: #f0f4f5;
+  --color-white: #fff;
+  --btn-dark: #949496;
+  --btn-dark2: var(--primary-color);
+
+  /* fonts */
+  --primary-font-size: 4.8rem;
+  --secondary-font-size: 2.4rem;
+  --body-text: 1.8rem;
+  --link-text: 1.6rem;
+  --btn-text: 1.6rem;
+  --primary-font: "IBM Plex Sans", sans-serif;
+  --para-text: 1.4rem;
+
+  /* spaces */
+  --m-large: 6rem;
+  --m-small: 2rem;
+  --p-large: 6rem;
+  --p-small: 2rem;
+  --nav-link-gap: 4rem;
+
+  /* style */
+  --btn-border: 8px;
+  --wrapper-padding: 2rem;
+  --nav-item-gap: 2rem;
+  --card-border: var(--btn-border, 10px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: var(--body-text);
+}
+html {
+  font-size: 62.5%;
+  font-family: var(--primary-font);
+}
+main {
+  padding: var(--p-small);
+  max-width: 1400px;
+  margin-inline: auto;
+  position: relative;
+}
+body{
+  background-color: var(--bg-color-light);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+img{
+  width: 100%;
+}
+@media screen and (max-width: 468px) {
+  header {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+nav{
+  width: 40%;
+}
+nav ul {
+  display: flex;
+  gap: var(--nav-link-gap);
+}
+@media screen and (max-width: 768px){
+  header{
+    align-items: flex-start;
+  }
+  header, nav ul{
+   gap: 2rem;
+  flex-direction: column;
+ }
+}
+
+.landing-page h1 {
+  font-size: clamp(2.4rem, 10vw, var(--primary-font-size));
+  white-space: nowrap;
+}
+
+/* landing page */
+.btn--primary {
+  padding: 1.5rem 4rem;
+  border-radius: 4rem;
+  background-color: var(--primary-color);
+  color: var(--color-white);
+}
+.landing-page .content{
+  margin-top: 20rem;
+  position: relative;
+  max-width: 50rem;
+}
+.landing-page .content::before {
+  content: url("static/topAngle.png");
+}
+.landing-page .content::after {
+  content: url("static/bottomAngle.png");
+  position: absolute;
+  right: 0;
+}
+.landing-page .content p{
+  color:  var(--seconday-color);
+  margin-top: 1rem;
+}
+.landing-page .btn{
+  display: inline-block;
+  margin-top: var(--m-large);
+}
+figure.doctor {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: -1;
+}
+@media screen and (max-width: 468px){
+  figure.doctor{
+    position: static;
+    width: 100%;
+  }
+}
+
+/* contact page */
+main{
+  height: 100vh;
+}
+form{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 10px 20px;
+  box-shadow: 0 0 1rem black;
+  border-radius: 20px;
+  background-color: var(--bg-color-light);
+}
+@media screen and (max-width: 468px){
+  form{
+    margin-top: var(--m-large);
+    position: static;
+    transform: translate(0)
+  }
+}
+form h2{
+  text-align: center;
+  font-size: var(--secondary-font-size);
+}
+form .input-group{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+form .input-group input{
+  padding: 8px 4px;
+  border-radius: 10px;
+  border: none;
+  font-size: inherit;
+}
+/* about us */
+
+section#about-us{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+section#about-us .content{
+  text-align: center;
+  max-width: 50%;
+}
+section#about-us .content h1{
+  color: var(--primary-color);
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+section#about-us .content > p{
+font-size: 1.4rem;
+margin-bottom: 4rem;
+}
+section#about-us .content .achievements{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--m-large);
+}
+section#about-us .content .achievements span{
+  color: var(--primary-color);
+  font-weight: bold;
+}
+section#about-us .content .achievements .achievementCard{
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem black;
+}
