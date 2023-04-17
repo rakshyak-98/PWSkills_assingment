@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+  <body>
+    <div class="root"></div>
+    <script>
+      const root = document.querySelector(".root");
+      const title = document.createElement("h1");
+      const incrementBtn = document.createElement("button");
+      const decrementBtn = document.createElement("button");
+      const inputEl = document.createElement("input");
+      const actionEl = document.createElement("div");
+      const resetBtn = document.createElement('button')
+      resetBtn.setAttribute('type', 'button')
+      resetBtn.textContent = 'reset'
+      inputEl.setAttribute("value", "0");
+      inputEl.setAttribute("type", "text");
+      inputEl.setAttribute("title", "output");
+      incrementBtn.setAttribute("type", "button");
+      incrementBtn.textContent = "increment by 1";
+      decrementBtn.textContent = "decrement by 1";
+      decrementBtn.setAttribute("type", "button");
+      title.textContent = "Counter App";
+      root.appendChild(title);
+      root.style.display = "flex";
+      root.style.flexDirection = "column";
+      root.style.justifyContent = "center";
+      root.style.alignItems = "center";
+      root.style.gap = "20px"
+      root.appendChild(actionEl);
+      root.appendChild(resetBtn)
+      actionEl.appendChild(inputEl);
+      inputEl.insertAdjacentElement("beforeBegin", incrementBtn);
+      inputEl.insertAdjacentElement("afterEnd", decrementBtn);
+      incrementBtn.addEventListener("click", (e) => {
+        // inputEl.setAttribute("value", parseInt(++inputEl.value));
+        inputEl.value = parseInt(++inputEl.value)
+      });
+      decrementBtn.addEventListener("click", (e) => {
+        // inputEl.setAttribute("value", parseInt(--inputEl.value));
+        inputEl.value = parseInt(--inputEl.value)
+      });
+      resetBtn.addEventListener('click', (e) => {
+        inputEl.value = 0
+      })
+    </script>
+  </body>
+</html>

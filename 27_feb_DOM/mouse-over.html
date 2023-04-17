@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Mouse over</title>
+    <style>
+        h1{
+            background-color: coral;
+            padding: 10px;
+            color: white;
+            transition: background-color .3s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <h1>hover me to change my color</h1>
+    <script>
+        function generateRandomColor(){
+            let color
+            const letters = '0123456789ABCDEF'
+            for (let i = 0; i < 6; i++){
+                color += letters[Math.floor(Math.random() * 16)]
+            }
+            return color.replace('undefined', '#')
+        }
+        const h1 = document.querySelector('h1')
+        h1.addEventListener('mouseover', () => {
+            h1.style.backgroundColor = generateRandomColor()
+            console.log(generateRandomColor())
+        })
+    </script>
+</body>
+</html>

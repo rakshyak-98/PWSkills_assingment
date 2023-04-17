@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawsome icons -->
+    <script
+      src="https://kit.fontawesome.com/27f3ffb9e9.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Event Onclick</title>
+    <style>
+        header{
+            max-width: 1200px;
+            margin-inline: auto;
+        }
+        li{
+            list-style: none;
+        }
+        ul{
+            box-shadow: 0 0 10px gray;
+            max-width: max-content;
+            padding: 10px;
+            font-size: 18px;
+            position: absolute;
+        }
+        .fa-bars{
+            font-size: 24px;
+        }
+        .collapse{
+            visibility: hidden;
+            max-height: 0;
+        }
+        h1{
+          text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <span class="toggler"><i class="fa-solid fa-bars"></i></span>
+        <ul class="collapse">
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+          <li>item4</li>
+        </ul>
+      </nav>
+    </header>
+    <section>
+      <h1>click the bar icon to toggler navigation menu</h1>
+    </section>
+    <script defer>
+        const toggler = document.querySelector('.toggler')
+        const ul = document.querySelector('nav ul')
+        toggler.addEventListener('click', () => ul.classList.toggle('collapse'))
+    </script>
+  </body>
+</html>

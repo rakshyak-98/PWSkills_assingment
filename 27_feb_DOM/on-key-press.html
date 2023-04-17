@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event OnKeypress</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: teal;
+        }
+    </style>
+</head>
+<body>
+    <h1>press D to move the box to right side.</h1>
+    <div id="box"></div>
+  </body>
+  <script>
+    let position = 0;
+const box = document.getElementById("box");
+function moveBox(event) {
+  if (event.keyCode === 100) {
+    position += 10;
+    box.style.marginLeft = position + "px";
+    if (position >= window.innerWidth - 100) {
+      alert("You win!");
+      position = 0;
+      box.style.marginLeft = position + "px";
+    }
+  }
+}
+window.addEventListener('keypress', moveBox)
+  </script>
+</html>

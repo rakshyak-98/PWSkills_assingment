@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Typing Test</title>
+</head>
+<body>
+	<div>
+		<h1>Typing Test</h1>
+		<p>Type the following text as fast and as accurately as possible:</p>
+		<p id="testText">The quick brown fox jumps over the lazy dog</p>
+		<input type="text" id="textInput" />
+		<button id="startButton">Start</button>
+		<button id="resetButton" disabled>Reset</button>
+		<p id="results">results</p>
+	</div>
+
+	<script>
+		const testTextElement = document.getElementById('testText');
+		const textInputElement = document.getElementById('textInput');
+		const startButtonElement = document.getElementById('startButton');
+		const resetButtonElement = document.getElementById('resetButton');
+		const resultsElement = document.getElementById('results');
+
+		let startTime;
+		let typedText = '';
+
+		function startTest() {
+			startTime = Date.now();
+			typedText = '';
+			textInputElement.value = '';
+			textInputElement.focus();
+			startButtonElement.disabled = true;
+			resetButtonElement.disabled = false;
+			resultsElement.textContent = '';
+		}
+
+		function resetTest() {
+			startButtonElement.disabled = false;
+			resetButtonElement.disabled = true;
+			resultsElement.textContent = '';
+		}
+
+		function handleKeyPress(event) {
+			if (event.key === 'Enter') {
+				const endTime = Date.now();
+				const elapsedTime = (endTime - startTime) / 1000;
+				const accuracy = calculateAccuracy(typedText, testTextElement.textContent);
+				const wpm = calculateWPM(typedText, elapsedTime);
+				const results = `Time: ${elapsedTime.toFixed(2)} seconds, Accuracy: ${accuracy.toFixed(2)}%, WPM: ${wpm.toFixed(0)}`;
+				resetTest();
+                alert(results)
+			} else {
+				typedText += event.key;
+			}
+		}
+
+		function calculateAccuracy(typedText, testText) {
+			const typedTextLength = typedText.length;
+			const testTextLength = testText.length;
+			let correctCount = 0;
+			for (let i = 0; i < typedTextLength; i++) {
+				if (typedText[i] === testText[i]) {
+					correctCount++;
+				}
+			}
+			return (correctCount / testTextLength) * 100;
+		}
+
+		function calculateWPM(typedText, elapsedTime) {
+			const typedTextLength = typedText.length;
+			const wpm = (typedTextLength / 5) / (elapsedTime / 60);
+			return wpm;
+		}
+
+		startButtonElement.addEventListener('click', startTest);
+		resetButtonElement.addEventListener('click', resetTest);
+		textInputElement.addEventListener('keydown', handleKeyPress);
+	</script>
+</body>
+</html>
