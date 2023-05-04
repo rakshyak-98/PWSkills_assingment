@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+  </head>
+  <body>
+    <h1>Javascript Quiz</h1>
+    <div class="quiz-wrapper"></div>
+    <div class="connicolQuestion-wrapper"></div>
+    <button type="button">Submit</button>
+    <script>
+            const myQuestions = [
+              {
+                question: "What is the capital of France?",
+                answers: {
+                  a: "Paris",
+                  b: "London",
+                  c: "New York",
+                },
+                correctAnswer: "a",
+              },
+              {
+                question: "What is the largest country in the world?",
+                answers: {
+                  a: "Russia",
+                  b: "China",
+                  c: "United States",
+                },
+                correctAnswer: "a",
+              },
+              {
+                question: "What is the currency of Japan?",
+                answers: {
+                  a: "Yuan",
+                  b: "Euro",
+                  c: "Yen",
+                },
+                correctAnswer: "c",
+              },
+            ];
+            const quizWrapper = document.querySelector(".quiz-wrapper");
+            const connicolQuestion = myQuestions
+              .map((qObj, qindex) => {
+                const { question, answers } = qObj;
+                return `<div>${question}</div><div class='answer'>${Object.entries(
+                  answers
+                )
+                  .map(
+                    ([key, value], index) =>
+                      `<label><input type='radio' name='question${qindex}' value='${key}'/><span class="text">${key}:${value}</span></label>`
+                  )
+                  .join("")}</div>`;
+              })
+              .join("");
+            quizWrapper.innerHTML = connicolQuestion;
+            document.querySelector("button").addEventListener("click", () => {
+              document.querySelectorAll(".answer").forEach((el, qindex) => {
+                const { correctAnswer } = myQuestions[qindex];
+                const userAns = document.querySelector(
+                  `input[name='question${qindex}']:checked`
+                );
+                if (userAns) {
+      const textEl = document.querySelector(
+                    `input[name='question${qindex}']:checked + .text`
+                  )
+                  if (userAns.value == correctAnswer)
+                 textEl.style.color = "green";
+                  else textEl.style.color = 'red'
+                }
+              });
+            });
+    </script>
+  </body>
+</html>
