@@ -1,0 +1,15 @@
+{
+  "name": "pwskills",
+  "type": "module",
+  "scripts": {
+    "q1": "node q1.js",
+    "q2": "node q2",
+    "q3": "node q3",
+    "q4": "node q4"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pm2": "^2.10.4",
+    "uuid": "^9.0.0"
+  }
+}
