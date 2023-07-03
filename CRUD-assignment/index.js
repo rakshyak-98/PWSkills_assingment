@@ -24,7 +24,7 @@ app.post("/login", validateLoginBody, loginUser);
 app.post("/register", validateCreateUserBody, encryptPassword, createUser);
 
 mongoose
-	.connect("mongodb://localhost:27017/cors-assignment")
+	.connect(process.env.MONGODB_URL)
 	.catch((error) => console.log(error.msg));
 
 app.listen(8000);
